@@ -44,4 +44,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     </form>
     </div>
 </body>
+<footer class="register-footer">
+    <p>2025 Quizouille - Tous droits réservés.</p>
+</footer>
 </html>

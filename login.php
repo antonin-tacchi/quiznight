@@ -45,4 +45,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <p>Pas encore de compte ? <a href="register.php">Créers en un !</a></p>
     </div>
 </body>
+<footer class="login-footer">
+    <p>2025 Quizouille - Tous droits réservés.</p>
+</footer>   
 </html>
