@@ -1,6 +1,9 @@
 <?php
 include 'db.php';
 
+session_start();
+// var_dump($_SESSION);
+
 $dsn = 'mysql:host=localhost;dbname=quizznight';
 $username = 'root';
 $password = '';
@@ -32,18 +35,17 @@ $quizzes = $stmt->fetchAll(PDO::FETCH_ASSOC);
     <p class="p-titre">Bienvenue sur votre espace personnel de Quizouille !</p>
 </div>
     <!-- Affichage des quizs -->
-    <div class="container">        
-        <h1>Choisissez un Quiz</h1>
-            
-        <?php foreach ($quizzes as $quiz): ?>
-            <div class="quiz-card">
-                <img src="<?php echo htmlspecialchars($quiz['url_image']); ?>" alt="Quiz Image" class="quiz-image">
-                <h2 class="quiz-title"><?php echo htmlspecialchars($quiz['title']); ?></h2>
-                <p class="quiz-description"><?php echo htmlspecialchars($quiz['description']); ?></p>
-                <a href="quiz.php?id=<?php echo $quiz['id']; ?>" class="quiz-link">Commencer le Quiz</a>
-            </div>
-        <?php endforeach; ?>
-     </div>
+    <h1>Voici les Quiz disponible</h1>
+    <div class="quiz_container">
+    <?php foreach ($quizzes as $quiz): ?>
+        <div class="quiz-item">
+            <img src="<?php echo htmlspecialchars($quiz['url_image']); ?>" alt="Quiz Image" class="quiz-image">
+            <h2 class="quiz-title"><?php echo htmlspecialchars($quiz['title']); ?></h2>
+            <p class="quiz-description"><?php echo htmlspecialchars($quiz['description']); ?></p>
+            <a href="quiz.php?id=<?php echo $quiz['id']; ?>" class="quiz-link">Commencer le Quiz</a>
+        </div>
+    <?php endforeach; ?>
+</div>
 </body>
 <footer class="register-footer">
     <p>2025 Quizouille - Tous droits réservés.</p>

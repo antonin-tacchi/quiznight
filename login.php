@@ -8,16 +8,25 @@ $password = '';
 
 $pdo = new PDO($dsn, $username, $password);
 
+$error_message = '';  // Initialisation de la variable d'erreur
+
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $username = $_POST['username'];
     $password = $_POST['password'];
 
     $user = new User($pdo);
     $message = $user->login($username, $password);
-    echo $message;
-    header('Location: index2.php');
+
+    if ($message === "Nom d'utilisateur introuvable." || $message === "Mot de passe incorrect.") {
+        $error_message = $message;  // Assigner l'erreur à la variable
+    } else {
+        var_dump($_SESSION['user']);
+        header('Location: index2.php');  // Redirection en cas de succès
+        exit();
+    }
 }
 ?>
+
 
 <!DOCTYPE html>
 <html lang="fr">
@@ -41,8 +50,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         <input type="password" id="password" name="password" required><br><br>
 
         <button type="submit"><p>Se connecter</p></button>
+
+        <!-- Affichage du message d'erreur sous le bouton -->
+        <?php if (!empty($error_message)): ?>
+            <div class="error-message"><p><?php echo $error_message; ?></p></div>
+        <?php endif; ?>
     </form>
-    <p>Pas encore de compte ? <a href="register.php">Créers en un !</a></p>
+    <p>Pas encore de compte ? <a href="register.php">Créez-en un !</a></p>
     </div>
 </body>
 <footer class="login-footer">

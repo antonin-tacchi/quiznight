@@ -33,17 +33,23 @@ class User {
         $stmt = $this->pdo->prepare("SELECT * FROM users WHERE username = :username");
         $stmt->execute(['username' => $username]);
         $user = $stmt->fetch(PDO::FETCH_ASSOC);
-
-        if ($user && password_verify($password, $user['password'])) {
+    
+        // Si l'utilisateur n'existe pas, on renvoie un message d'erreur
+        if (!$user) {
+            return "Nom d'utilisateur introuvable.";
+            exit();
+        }
+    
+        // Vérification du mot de passe
+        if (password_verify($password, $user['password'])) {
             // Connexion réussie
             session_start();
-            $_SESSION['user_id'] = $user['id'];
-            $_SESSION['username'] = $user['username'];
-            header('Location: index.php');
+            $_SESSION['user'] = $user;
         } else {
-            return "Nom d'utilisateur ou mot de passe incorrect.";
+            return "Mot de passe incorrect.";
         }
     }
+    
 
     public function logout() {
         session_start();
