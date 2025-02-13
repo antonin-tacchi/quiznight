@@ -1,9 +1,8 @@
 <?php 
-// Démarrer la session
 session_start();
 
 // Vérifier si l'utilisateur est connecté
-if (!isset($_SESSION['user_id'])) {
+if (!isset($_SESSION['user'])) {
     // Si l'utilisateur n'est pas connecté, rediriger vers la page de login
     header('Location: login.php');
     exit();
@@ -35,7 +34,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['submit_quiz'])) {
 
     // Création du quiz
     $quiz = new Quiz($db);
-    $quiz_id = $quiz->addQuiz($quiz_title, $quiz_description, $_SESSION['user_id'], $quiz_image_url);
+    $quiz_id = $quiz->addQuiz($quiz_title, $quiz_description, $_SESSION['user'], $quiz_image_url);
 
     // Ajouter les questions une fois le quiz soumis
     for ($i = 1; $i <= $current_question; $i++) {

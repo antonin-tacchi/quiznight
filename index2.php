@@ -2,7 +2,6 @@
 include 'db.php';
 
 session_start();
-// var_dump($_SESSION);
 
 $dsn = 'mysql:host=localhost;dbname=quizznight';
 $username = 'root';
