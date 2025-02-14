@@ -44,7 +44,7 @@ class User {
         if (password_verify($password, $user['password'])) {
             // Connexion réussie
             session_start();
-            $_SESSION['user'] = $user;
+            $_SESSION['user'] = $user['id'];  // Stocker l'ID de l'utilisateur
         } else {
             return "Mot de passe incorrect.";
         }
@@ -61,7 +61,7 @@ class User {
     public function getCreatedQuizzes() {
         $query = "SELECT * FROM quizz WHERE created_by = :user_id";
         $stmt = $this->pdo->prepare($query);
-        $stmt->bindParam(':user_id', $this->user_id);
+        $stmt->bindParam(':user', $this->user_id);
         $stmt->execute();
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }

@@ -96,6 +96,116 @@ label{
     color: white;
     line-height: 1.5em;
 }
+
+/* Conteneur principal */
+.container-jeu {
+    max-width: 600px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #670097;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+/* Style du titre (h1-jeu) */
+.h1-jeu {
+    font-size: 24px;
+    color: #ffffff;
+    margin-bottom: 20px;
+}
+
+/* Style du paragraphe avec la question (p-jeu) */
+.p-jeu {
+    font-size: 18px;
+    color: #ffffff;
+    margin-bottom: 30px;
+    line-height: 1.5;
+}
+
+/* Style des boutons (bouton-jeu) */
+.bouton-jeu {
+    font-size: 18px;
+    padding: 10px 20px;
+    margin: 10px;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+/* Bouton "Vrai" */
+.bouton-jeu[value="true"] {
+    background-color: #4CAF50;
+    color: white;
+}
+
+/* Bouton "Faux" */
+.bouton-jeu[value="false"] {
+    background-color: #f44336;
+    color: white;
+}
+
+/* Effet au survol des boutons */
+.bouton-jeu:hover {
+    transform: scale(1.02);
+}
+
+/* Effet au survol du bouton "Vrai" */
+.bouton-jeu[value="true"]:hover {
+    background-color: #45a049;
+}
+
+/* Effet au survol du bouton "Faux" */
+.bouton-jeu[value="false"]:hover {
+    background-color: #e53935;
+}
+
+/* Conteneur principal des résultats */
+.container-result {
+    max-width: 600px;
+    margin: 50px auto;
+    padding: 30px;
+    background-color: #670097;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+/* Style du titre des résultats (h1-result) */
+.h1-result {
+    font-size: 28px;
+    color: #ffffff;
+    margin-bottom: 20px;
+}
+
+/* Style du texte avec le score (p-result) */
+.p-result {
+    font-size: 20px;
+    color: #ffffff;
+    margin-bottom: 30px;
+    line-height: 1.5;
+}
+
+/* Style du lien de retour (a-result) */
+.a-result {
+    font-size: 18px;
+    color: #ffffff;
+    background-color: #007BFF;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background-color 0.3s;
+}
+
+/* Effet au survol du lien de retour */
+.a-result:hover {
+    background-color: #0056b3;
+}
+
+
+
+
 input[type="text"],
  input[type="password"]{
     width: 100%;
@@ -150,7 +260,7 @@ button:hover{
     padding: 0 20px;
     color: white;
     font-weight: bold;
-    margin-top: 7.3em;
+    margin-top: 7.5em;
     margin-left: -1em;
     margin-right: -0.5em;
 }
@@ -167,6 +277,20 @@ button:hover{
     margin-left: -1em;
     margin-right: -0.5em;
 }
+.affichage-footer{
+    background-color: rgb(123, 76, 152);
+    height: 5em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 20px;
+    color: white;
+    font-weight: bold;
+    margin-top: 11.8em;
+    margin-left: -1em;
+    margin-right: -0.5em;
+}
+
 
 
 
@@ -238,5 +362,100 @@ button:hover{
     /* Sur les petits écrans, on affiche une seule colonne */
     .quiz_container {
         grid-template-columns: 1fr;
+    }
+}
+
+
+.affichage-container {
+    display: flex;              /* Utilise Flexbox pour aligner les éléments en ligne */
+    flex-wrap: wrap;            /* Permet aux éléments de passer à la ligne suivante si nécessaire */
+    gap: 20px;                  /* Espacement entre les éléments */
+    justify-content: flex-start; /* Aligne les éléments à gauche */
+    width: 100%;                /* Prend toute la largeur disponible */
+    overflow-x: auto;           /* Ajoute un défilement horizontal si nécessaire */
+}
+
+.affichage-container ul {
+    list-style: none;           /* Supprime les puces de la liste */
+    padding: 0;                 /* Enlève le padding */
+    margin: 0;                  /* Enlève la marge */
+    display: flex;              /* Utilise flexbox pour les <li> dans <ul> */
+    gap: 20px;                  /* Espacement entre les éléments de la liste */
+    flex-wrap: wrap;            /* Permet de passer à la ligne suivante lorsque l'espace est insuffisant */
+}
+
+.affichage-container li {
+    display: flex;              /* Utilise flexbox pour chaque élément de la liste */
+    flex-direction: column;     /* Affiche les éléments à l'intérieur de chaque <li> en colonne */
+    align-items: center;        /* Centre les éléments à l'intérieur de chaque <li> */
+    max-width: 250px;           /* Limite la largeur des items */
+    width: 250px;               /* Fixe la largeur des éléments */
+}
+
+.affichage-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    text-align: center;
+}
+
+.affichage-img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 10px;
+}
+
+.affichage-title {
+    font-size: 1.2rem;
+    margin: 10px 0;
+}
+
+.affichage-description {
+    font-size: 1rem;
+    margin-bottom: 10px;
+}
+
+.bouton-supr {
+    margin-top: 10px;
+}
+
+.delete-button {
+    background-color: red;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.delete-button:hover {
+    background-color: darkred;
+}
+
+/* Media Queries pour les petits écrans */
+@media (max-width: 1024px) {
+    .affichage-container {
+        flex-direction: column;  /* Sur les écrans plus petits, on passe en colonne */
+        align-items: center;     /* Centrer les éléments */
+    }
+
+    .affichage-container ul {
+        flex-direction: column;  /* Les quiz se rangent en colonne */
+        align-items: center;
+    }
+
+    .affichage-container li {
+        width: 100%;             /* Les quiz prennent toute la largeur disponible */
+        max-width: 100%;         /* Ils s'ajustent à la largeur de l'écran */
+    }
+}
+
+@media (max-width: 768px) {
+    .affichage-container li {
+        width: 100%;             /* Les quiz prennent toute la largeur sur des écrans plus petits */
     }
 }

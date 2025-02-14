@@ -13,10 +13,10 @@ class Quiz {
         // Préparer la requête SQL pour insérer un quiz
         $query = "INSERT INTO quizz (title, description, created_by, url_image) 
                   VALUES (:title, :description, :createdBy, :urlImage)";
-        
+
         // Préparer la requête avec la connexion PDO
         $stmt = $this->db->prepare($query);
-        
+
         // Lier les paramètres
         $stmt->bindParam(':title', $title);
         $stmt->bindParam(':description', $description);
