@@ -44,10 +44,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <h2>Connexion</h2>
     <form method="POST">
         <label for="username"><p>Nom d'utilisateur</p></label>
-        <input type="text" id="username" name="username" required><br><br>
+        <input type="text" id="username" name="username" autocomplete="off" required><br><br>
 
         <label for="password"><p>Mot de passe</p></label>
-        <input type="password" id="password" name="password" required><br><br>
+        <input type="password" id="password" name="password" autocomplete="off" required><br><br>
 
         <button type="submit"><p>Se connecter</p></button>
 

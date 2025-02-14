@@ -91,13 +91,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['add_question'])) {
     
         <!-- Champs pour les informations du quiz -->
         <label for="title">Titre du Quiz :</label>
-        <input type="text" name="title" value="<?php echo htmlspecialchars($quiz_title); ?>" required class="input-creation">
+        <input type="text" name="title" value="<?php echo htmlspecialchars($quiz_title); ?>" autocomplete="off" required class="input-creation">
     
         <label for="description">Description du Quiz :</label>
         <textarea name="description" required class="input-creation"><?php echo htmlspecialchars($quiz_description); ?></textarea>
     
         <label for="url_image">URL de l'image :</label>
-        <input type="text" name="url_image" value="<?php echo htmlspecialchars($quiz_image_url); ?>" required class="input-creation">
+        <input type="text" name="url_image" value="<?php echo htmlspecialchars($quiz_image_url); ?>" autocomplete="off" required class="input-creation">
     
         <h3>Questions :</h3>
     
@@ -106,7 +106,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['add_question'])) {
         for ($i = 1; $i <= $current_question; $i++) {
             echo '<div class="question" id="question_'.$i.'">
                     <label for="question_text_'.$i.'">Question '.$i.' :</label>
-                    <input type="text" name="question_text_'.$i.'" value="'.(isset($_POST["question_text_$i"]) ? htmlspecialchars($_POST["question_text_$i"]) : '').'" required>
+                    <input type="text" name="question_text_'.$i.'" value="'.(isset($_POST["question_text_$i"]) ? htmlspecialchars($_POST["question_text_$i"]) : '').'" autocomplete="off" required>
                     <label for="question_type_'.$i.'">Type de question '.$i.' (Vrai/Faux) :</label>
                     <select name="question_type_'.$i.'" required>
                         <option value="true" '.(isset($_POST["question_type_$i"]) && $_POST["question_type_$i"] == 'true' ? 'selected' : '').'>Vrai</option>
