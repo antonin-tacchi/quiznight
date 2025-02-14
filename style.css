@@ -96,6 +96,65 @@ label{
     color: white;
     line-height: 1.5em;
 }
+/* Conteneur principal de la sélection de quiz */
+.selection-modif-quiz {
+    width: 50%;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+/* Titre de la section */
+.h2-modif {
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #333333;
+}
+
+/* Style du formulaire */
+.form-modif {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+}
+
+/* Champ de sélection */
+.form-modif select {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: #f9f9f9;
+    transition: border-color 0.3s ease;
+}
+
+/* Effet de survol sur le select */
+.form-modif select:focus {
+    border-color: #007bff;
+    outline: none;
+}
+
+/* Style du bouton de modification */
+.bouton-modif {
+    padding: 10px 20px;
+    font-size: 16px;
+    color: #fff;
+    background-color: #007bff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+/* Effet de survol sur le bouton */
+.bouton-modif:hover {
+    background-color: #0056b3;
+}
 
 /* Conteneur principal */
 .container-jeu {
@@ -435,6 +494,149 @@ button:hover{
 .delete-button:hover {
     background-color: darkred;
 }
+
+
+/* Conteneur principal */
+.container-mofi {
+    width: 80%;
+    margin: 0 auto;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+    background-color: #6b00b2;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Section pour modifier un quiz */
+.modif-quiz {
+    margin-bottom: 30px;
+}
+
+.h2-modif-quiz {
+    font-size: 1.8em;
+    color: #333;
+    margin-bottom: 15px;
+}
+
+.form-modif {
+    background-color: #540085;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.label-form-modif {
+    display: block;
+    font-size: 1em;
+    color: #ffffff;
+    margin-bottom: 5px;
+}
+
+input[type="text"],
+textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1em;
+}
+
+textarea {
+    resize: vertical;
+    height: 100px;
+}
+
+button[type="submit"] {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    font-size: 1em;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button[type="submit"]:hover {
+    background-color: #45a049;
+}
+
+/* Section des questions */
+.modif-question {
+    margin-bottom: 30px;
+}
+
+.modif-question h2 {
+    font-size: 1.6em;
+    color: #ffffff;
+    margin-bottom: 15px;
+}
+.text-supr-modif{
+    color: white;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+ul li {
+    background-color: #470074;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 4px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+ul li form {
+    display: inline-block;
+}
+
+button[type="submit"] {
+    background-color: #f44336;
+}
+
+button[type="submit"]:hover {
+    background-color: #e53935;
+}
+
+/* Section ajouter une question */
+.add-question {
+    margin-bottom: 30px;
+}
+
+.h2-question {
+    font-size: 1.8em;
+    color: #ffffff;
+    margin-bottom: 15px;
+}
+
+.form-question {
+    background-color: #470074;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.label-question {
+    display: block;
+    font-size: 1em;
+    color: #555;
+    margin-bottom: 5px;
+}
+
+select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1em;
+}
+
 
 /* Media Queries pour les petits écrans */
 @media (max-width: 1024px) {

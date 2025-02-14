@@ -41,33 +41,39 @@ $quizzes = $stmt->fetchAll(PDO::FETCH_ASSOC);
 </header>
 <body>
     <h1>Voici vos Quiz </h1>
-<div class="affichage-container">
+    <div class="affichage-container">
     <?php if (count($quizzes) > 0): ?>
-    <ul>
-        <?php foreach ($quizzes as $quiz): ?>
-            <li>
-                <div class="affichage-item">
-                    <img src="<?php echo htmlspecialchars($quiz['url_image']); ?>" alt="Image du quiz" style="width: 200px;" class="affichage-img">
-                    <h2 class="affichage-title"><?php echo htmlspecialchars($quiz['title']); ?></h2>
-                    <p class="affichage-description"><?php echo htmlspecialchars($quiz['description']); ?></p>
+        <ul>
+            <?php foreach ($quizzes as $quiz): ?>
+                <li>
+                    <div class="affichage-item">
+                        <img src="<?php echo htmlspecialchars($quiz['url_image']); ?>" alt="Image du quiz" style="width: 200px;" class="affichage-img">
+                        <h2 class="affichage-title"><?php echo htmlspecialchars($quiz['title']); ?></h2>
+                        <p class="affichage-description"><?php echo htmlspecialchars($quiz['description']); ?></p>
 
-                    <!-- Formulaire de suppression -->
-                    <div class="bouton-supr">
-                        <form action="supprimer-quiz.php" method="POST" onsubmit="return confirm('Êtes-vous sûr de vouloir supprimer ce quiz et toutes ses questions ?');">
-                            <input type="hidden" name="quiz_id" value="<?php echo $quiz['id']; ?>">
-                            <button type="submit" class="delete-button">Supprimer</button>
-                        </form>
+                        <!-- Formulaire de suppression -->
+                        <div class="bouton-supr">
+                            <form action="supprimer-quiz.php" method="POST" onsubmit="return confirm('Êtes-vous sûr de vouloir supprimer ce quiz et toutes ses questions ?');">
+                                <input type="hidden" name="quiz_id" value="<?php echo $quiz['id']; ?>">
+                                <button type="submit" class="delete-button">Supprimer</button>
+                            </form>
+                        </div>
                     </div>
-                 </div>
-            </li>
-        <?php endforeach; ?>
-    </ul>
+                </li>
+            <?php endforeach; ?>
+        </ul>
     <?php else: ?>
         <p>Aucun quiz créé par cet utilisateur.</p>
     <?php endif; ?>
 </div>
 
-</body>
+<!-- Bouton général de modification, placé en dehors des quizzes -->
+<div class="bouton-modif">
+    <a href="modification.php" class="modification-button">
+        <button type="button">Modification</button>
+    </a>
+</div>
+
 <footer class="affichage-footer">
     <p>2025 Quizouille - Tous droits réservés.</p>
 </footer>
